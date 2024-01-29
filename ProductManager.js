@@ -7,20 +7,30 @@ class ProductManager {
     }
 
     static id = 0;
-    // hacer funcion de inicializar
+
     addProduct = async (title, description, price, thumbnail, code, stock) => {
 
         const producto = {
             title, description, price, thumbnail, code, stock,
         }
 
-        if (!Object.values(producto).some((val) => val == undefined) &&
+        if (!Object.values(producto).includes(undefined) &&
             !this.products.some((prod) => (prod.code === code))) {
             ProductManager.id++
             this.products.push({ ...producto, id: ProductManager.id })
-            await this.fs.promises.writeFile(this.filePath, JSON.stringify(this.products, null, 2, '\t'))
+            try {
+                console.log(this.products)
+                await this.fs.promises.writeFile(
+                    this.filePath,
+                    JSON.stringify(this.products, null, 2, '\t')
+                );
+            }
+            catch (error) {
+                console.error(`Error escribiendo el archivo: ${error}`);
+            }
         }
     }
+
 
     getProducts = async () => {
         let productosFileStr = await this.fs.promises.readFile(this.filePath, "utf-8");
@@ -41,16 +51,14 @@ class ProductManager {
         }
     }
 
-    updateProduct = async ({id, ...prod}) => {
+    updateProduct = async ({ id, ...prod }) => {
         let array = await this.getProducts()
         let indiceProd = array.findIndex((prod) => (prod.id === id))
-        if(indiceProd > -1){
-        
-            array.splice(indiceProd, 1, {...prod, id})
-            console.log("el updateprdo")
-            console.log(array)
+        if (indiceProd > -1) {
+
+            array.splice(indiceProd, 1, { ...prod, id })
             await this.fs.promises.writeFile(this.filePath, JSON.stringify(array, null, 2, '\t'))
-        }else{
+        } else {
             console.log("Not Found")
         }
     }
@@ -66,36 +74,36 @@ class ProductManager {
             console.log('Not Found')
         }
     }
-}
 
+}
 
 
 // Pruebas
 const prods = new ProductManager();
 //agrego producto de prueba
 prods.addProduct('producto prueba', 'Este es un producto prueba', 200, 'Sin imagen', 'abc123', 25)
-prods.addProduct('producto prueba', 'Este es un producto prueba', 200, 'Sin imagen', 'abcasss123', 25)
-// producto sin un campo
+prods.addProduct('producto omg', 'Este es un producto prueba', 200, 'Sin imagen', 'abcasss123', 25)
+prods.addProduct('producto prueba', 'Este es un producto prueba', 200, 'Sin imagen', 'a', 25)
+//  producto sin un campo
 prods.addProduct('producto prueba', 'Este es un producto prueba', 200, 'Sin imagen', 'abc')
-//producto con codigo repetido
+// //producto con codigo repetido
 prods.addProduct('producto prueba', 'Este es un producto prueba', 200, 'Sin imagen', 'abc123', 25)
 
+// //busqueda por id
+prods.getProductsById(9)
+// prods.getProductsById(5)
 
-//busqueda por id
-prods.getProductsById(1)
-prods.getProductsById(5)
-
-//para actualizar, envio un objeto modificado
+// //para actualizar, envio un objeto modificado
 prods.updateProduct({
-        title: "aaa",
-        description: "Este es un producto prueba",
-        price: 200,
-        thumbnail: "Con imagen",
-        code: "abc123",
-        stock: 25,
-        id: 1
+    title: "aaa",
+    description: "Este es un producto prueba",
+    price: 200,
+    thumbnail: "Con imagen",
+    code: "abc123",
+    stock: 25,
+    id: 1
 })
 
-prods.deleteProduct(9)
-prods.deleteProduct(2)
+//prods.deleteProduct(2)
+//prods.deleteProduct(5)
 
