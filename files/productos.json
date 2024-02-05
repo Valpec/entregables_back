@@ -1,1 +1,92 @@
-[]
+[
+  {
+    "title": "Vela Copon",
+    "description": "Vela",
+    "price": 3500,
+    "thumbnail": "vela_copon.jpg",
+    "code": "vc3500",
+    "stock": 1,
+    "id": 1
+  },
+  {
+    "title": "Vela Alba",
+    "description": "Vela",
+    "price": 3700,
+    "thumbnail": "vela_alba.jpg",
+    "code": "va3700",
+    "stock": 1,
+    "id": 2
+  },
+  {
+    "title": "Vela Bir",
+    "description": "Vela",
+    "price": 3000,
+    "thumbnail": "vela_bir.jpg",
+    "code": "vb3000",
+    "stock": 1,
+    "id": 3
+  },
+  {
+    "title": "Aromatizador Rita",
+    "description": "Esencia",
+    "price": 3000,
+    "thumbnail": "esencia.jpg",
+    "code": "ar3000",
+    "stock": 1,
+    "id": 4
+  },
+  {
+    "title": "Aromatizador Diana",
+    "description": "Esencia",
+    "price": 2800,
+    "thumbnail": "esencia_carrousel.jpeg",
+    "code": "ad2800",
+    "stock": 1,
+    "id": 5
+  },
+  {
+    "title": "Almohadon a rayas",
+    "description": "Textil",
+    "price": 1700,
+    "thumbnail": "almohadones_ray.jpg",
+    "code": "ary1700",
+    "stock": 1,
+    "id": 6
+  },
+  {
+    "title": "Camino de mesa",
+    "description": "Textil",
+    "price": 2000,
+    "thumbnail": "camino_mesa.jpeg",
+    "code": "cm2000",
+    "stock": 1,
+    "id": 7
+  },
+  {
+    "title": "Repasador panal",
+    "description": "Textil",
+    "price": 1500,
+    "thumbnail": "repasadores.jpg",
+    "code": "rp1500",
+    "stock": 1,
+    "id": 8
+  },
+  {
+    "title": "Colgante Corazon",
+    "description": "Decoracion",
+    "price": 1000,
+    "thumbnail": "colg_cora.jpg",
+    "code": "cc1000",
+    "stock": 1,
+    "id": 9
+  },
+  {
+    "title": "Colgante Flor",
+    "description": "Decoracion",
+    "price": 1000,
+    "thumbnail": "colg_flor.jpg",
+    "code": "cf1000",
+    "stock": 1,
+    "id": 10
+  }
+]
