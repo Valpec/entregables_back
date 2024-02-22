@@ -60,4 +60,30 @@ delForm.addEventListener("submit", async(e)=>{
     socket.emit('deleteProduct', deletedProdId)
 })
 
-
+const updateForm = document.getElementById('updateProd')
+updateForm.addEventListener("submit", async (e)=>{
+    e.preventDefault()
+    
+    let title = document.getElementById('uTitle').value
+    let description = document.getElementById('uDescription').value
+    let code = document.getElementById('uCode').value
+    let price = document.getElementById('uPrice').value
+    let status = document.getElementById('uStatus').value
+    let stock = document.getElementById('uStock').value
+    let category = document.getElementById('uCategory').value
+    let thumbnail = document.getElementById('uThumbnail').value
+    let id = parseInt(document.getElementById('uId').value)
+    
+    const productToUpdate ={
+        title: title,
+        description: description,
+        code:code,
+        price:price,
+        status:status,
+        stock:stock,
+        category:category,
+        thumbnail:thumbnail,
+        id: id
+    }
+    socket.emit('updateProduct', productToUpdate)
+})

@@ -64,4 +64,15 @@ socketServer.on('connection', async (socket) => {
         }
     })
 
+    socket.on('updateProduct', async(data)=>{
+        try{
+            await productManager.updateProduct(data)
+            let updatedProds = await productManager.getProducts()
+           socket.emit('prods', updatedProds)
+    }catch (error){
+        console.log(`Error al intentar actualizar el producto, ${error}`)
+        socket.emit(`Error al actualizar producto: ${error}`)
+    }
+    })
+
 })

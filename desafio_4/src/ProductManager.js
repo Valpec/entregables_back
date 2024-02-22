@@ -66,14 +66,14 @@ class ProductManager {
        
     }
 
-    updateProduct = async (pid, productoRecibido) => {
+    updateProduct = async (productoRecibido) => {
         let array = await this.getProducts()
-        let indiceProd = array.findIndex((prod) => (prod.id === pid))
+        let indiceProd = array.findIndex((prod) => (prod.id === productoRecibido.id))
 
         if (indiceProd === -1) {
             throw new Error("Id not found")
         } else {
-            array.splice(indiceProd, 1, { ...productoRecibido, id: pid })
+            array.splice(indiceProd, 1, { ...productoRecibido})
             await this.fs.promises.writeFile(this.path, JSON.stringify(array, null, 2, '\t'))
         }
     }
