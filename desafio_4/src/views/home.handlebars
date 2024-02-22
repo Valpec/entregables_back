@@ -1,13 +1,14 @@
-<div class="itemList">
-    hola
+<h3>Listado de productos: </h3>
+<div class="itemList"> 
     {{#each prods}}
     <div class="item">
-        <p>{{this.id}}</p>
-        <p>{{this.title}}</p>
-        <p>{{this.price}}</p>
+        <h4>Id: {{this.id}}</h4>
+        <p>Title: {{this.title}}</p>
+        <p>Code: {{this.code}}</p>
+        <p>Price: {{this.price}}</p>
+        <p>Stock: {{this.stock}}</p>
+        <p>Category: {{this.category}}</p>
 
     </div>
     {{/each}}
 </div>
-<script src="/socket.io/socket.io.js"></script>
-{{!-- <script src="../public/js/index.js"></script> --}}

@@ -1,52 +1,56 @@
-
 <div class="">
     <h2>Informacion Productos</h2>
     <div class="itemList" id="itemList">
-        
+
     </div>
-    <h2>Agregar Producto</h2>
-     <form id="addProd" action="">
-        <label for="title">Title </label>
-        <input id="title" type="text" name="title" placeholder="Add Title" class="input">
+    <div class="formularios">
+        <div class="formAdd">
+            <h2>Agregar Producto</h2>
+            <form id="Prod" action="">
+                <label for="title"> Title: </label>
+                <input id="title" type="text" name="title" class="input">
 
-        <label for="description">Description </label>
-        <input id="description" type="text" name="title" placeholder="Add Description" class="input">
-        
-        <label for="code">Code </label>
-        <input id="code" type="text" name="title" placeholder="Add Code" class="input">
-        
-        <label for="price">Price </label>
-        <input id="price" type="text" name="title" placeholder="Add Price" class="input">
-        
-        <label for="status">Status </label>
-        <input id="status" type="text" name="title" placeholder="Add Status" class="input">
+                <label for="description"> Description: </label>
+                <input id="description" type="text" name="title" class="input">
 
-        <label for="stock">Stock </label>
-        <input id="stock" type="text" name="title" placeholder="Add Stock" class="input">
+                <label for="code"> Code: </label>
+                <input id="code" type="text" name="title" class="input">
 
+                <label for="price"> Price: </label>
+                <input id="price" type="text" name="title" class="input">
 
-        <label for="category">Category </label>
-        <input id="category" type="text" name="title" placeholder="Add Category" class="input">  
+                <label for="status"> Status: </label>
+                <input id="status" type="text" name="title" class="input">
+
+                <label for="stock"> Stock: </label>
+                <input id="stock" type="text" name="title" class="input">
 
 
-        <label for="thumbnail">Thumbnail </label>
-        <input id="thumbnail" type="text" name="title" placeholder="Add Thumbnail" class="input">
-
-        <input type="submit" value="Enviar">
-      </form>
+                <label for="category"> Category: </label>
+                <input id="category" type="text" name="title" class="input">
 
 
-      <h3>Eliminar Producto</h3>
-      <form id="deleteProd" action="">
-        <label for="">Id del producto:</label>
-        <input id="delProdId"type="text">
-        <input type="submit" value="Enviar">
-      </form>
+                <label for="thumbnail"> Thumbnail: </label>
+                <input id="thumbnail" type="text" name="title" class="input">
 
-      <h3>Modificar Producto</h3>
-      <form action="">
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
 
-      </form>
+        <div class="formDel">
+            <h3>Eliminar Producto</h3>
+            <form id="deleteProd" action="">
+                <label for="">Id del producto:</label>
+                <input id="delProdId" type="text">
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+
+
+
+
+    </div>
+
 </div>
 
 <script src="/socket.io/socket.io.js"></script>

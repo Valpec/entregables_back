@@ -2,27 +2,31 @@ const socket = io()
 let divItemList = document.getElementById('itemList')
 
 
-socket.emit('connection', 'HOLA')
+socket.emit('connection')
 socket.on('prods', (data) => {
-    console.log(`Info de productos: ${data}`)
     renderProds(data)
 } )
 
 const renderProds = (data)=>{
     divItemList.innerHTML = ``
     for(let prod of data){
-        let nuevoProducto = document.createElement("li")
+        let nuevoProducto = document.createElement("div")
+        nuevoProducto.className = `item`
         nuevoProducto.id = `${prod.id}`
-        nuevoProducto.innerHTML = `
-                                    <h5 class="itemName">${prod.title} </h5>
-                                    <h4>${prod.id}</h4>`
+        nuevoProducto.innerHTML = ` <h4>Id: ${prod.id}</h4>
+                                    <p class="itemName">Title: ${prod.title} </p>
+                                    <p>Code: ${prod.code}</p>
+                                    <p>Price: ${prod.price}</p>
+                                    <p>Stock: ${prod.stock}</p>
+                                    <p>Category: ${prod.category}</p>
+                                    `
         divItemList.appendChild(nuevoProducto)
     }
    
 }
 
 const addForm = document.getElementById('addProd')
-console.log(addForm)
+
 addForm.addEventListener("submit", async (e)=>{
     e.preventDefault()
     
@@ -46,7 +50,6 @@ addForm.addEventListener("submit", async (e)=>{
 
 
     }
-    console.log(`producto recibidoo: ${newProduct}`)
     socket.emit('newProduct', newProduct)
 })
 

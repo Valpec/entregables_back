@@ -29,7 +29,7 @@ const socketServer = new Server(httpServer);
 const productManager = new ProductManager()
 
 
-// const logs = [];
+
 socketServer.on('connection', async (socket) => {
     console.log("Nuevo cliente conectado");
 
@@ -43,7 +43,6 @@ socketServer.on('connection', async (socket) => {
     socket.on('newProduct', async (data) => {
         console.log(`Nuevo producto: ${data}`)
         try {
-            console.log({ ...data })
             await productManager.addProduct(data)
             let updatedProds = await productManager.getProducts()
             socket.emit('prods', updatedProds)
@@ -54,7 +53,7 @@ socketServer.on('connection', async (socket) => {
     })
 
     socket.on('deleteProduct', async(data)=>{
-        console.log(`id recibido: ${data}`)
+        console.log(`Id recibido: ${data}`)
         try{
             await productManager.deleteProduct(parseInt(data))
             let updatedProds = await productManager.getProducts()
