@@ -99,14 +99,14 @@
     "id": 9123
   },
   {
-    "title": "hola",
-    "description": "hola",
-    "code": "hola",
-    "price": "1231231",
-    "status": "true",
-    "stock": "23",
-    "category": "hola",
-    "thumbnail": "hola",
-    "id": 10270
+    "title": "Repasador panal",
+    "description": "Textil",
+    "code": "rps1500",
+    "price": 1500,
+    "status": true,
+    "stock": 1,
+    "category": "Textil",
+    "thumbnail": "repasadores.jpg",
+    "id": 33781
   }
 ]

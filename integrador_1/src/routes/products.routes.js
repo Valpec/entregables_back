@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-// import ProductService from '../dao/fileSystem/productService.js';
+// import ProductService from '../dao/fileSystem/ProductManager.js';
 import ProductService from '../dao/db/products.service.js'
 
 
@@ -48,7 +48,7 @@ router.post('/', async (req, res) => {
 
 router.put('/:pid', async (req, res) => {
     try {
-        let pid = parseInt(req.params.pid)
+        let pid = req.params.pid
         let prod = req.body
         await productService.updateProduct(pid, prod)
         res.status(200).send({ message: "Producto actualizado con exito" });

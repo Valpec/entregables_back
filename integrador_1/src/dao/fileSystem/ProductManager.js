@@ -1,5 +1,5 @@
 import fs from "fs";
-import path, { parse } from "path";
+import path from "path";
 import { fileURLToPath } from 'url';
 
 class ProductManager {
@@ -66,11 +66,11 @@ class ProductManager {
        
     }
 
-    updateProduct = async (productoRecibido) => {
+    updateProduct = async (pid, productoRecibido) => {
         let array = await this.getProducts()
         let indiceProd = array.findIndex((prod) => (prod.id === productoRecibido.id))
-
         if (indiceProd === -1) {
+
             throw new Error("Id not found")
         } else {
             array.splice(indiceProd, 1, { ...productoRecibido})
