@@ -23,7 +23,6 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
-
             const userData = req.body
             await userService.loginUser(userData, req)
             res.status(200).send({ message: "Usuario logueado con exito" });
@@ -35,7 +34,6 @@ router.post('/login', async (req, res) => {
 
 
 router.get("/logout", (req, res) => {
-    console.log(req.session)
     req.session.destroy(error => {
         if (error) {
             res.json({ error: 'logout error', mensaje: "Error al cerrar la sesion" });

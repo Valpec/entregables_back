@@ -29,9 +29,9 @@ router.get('/products', async (req, res) => {
         let sort = req.query.sort;
         let query = req.query.query;
         let prods = await productManager.getProducts(limit, page, sort, query)
-        console.log(req.session)
+
         let data = { prods: prods, user: req.session }
-        // res.render('products', data)
+
         req.session.user ? res.render('products', data) : res.send('Debe estar loguado para ver este contenido')
 
     } catch (error) {
@@ -44,7 +44,6 @@ router.get('/products/:pid', async (req, res) => {
     try {
         let pid = req.params.pid
         let prod = await productManager.getProductsById(pid)
-        // res.render('productsDetail', prod)
         req.session.user ? res.render('productsDetail', prod) : res.send('Debe estar loguado para ver este contenido')
         
     } catch (error) {
@@ -57,7 +56,7 @@ router.get('/carts/:cid', async (req, res) => {
     try {
         let cid = req.params.cid
         let cart = await cartService.listCartProds(cid)
-        // res.render('cart', cart)
+
         req.session.user ? res.render('cart', cart) : res.send('Debe estar loguado para ver este contenido')
 
     } catch (error) {
@@ -87,7 +86,7 @@ router.get(`/profile`, async (req, res) => {
 
 })
 
-//Auth middleware:
+
 function auth(req, res, next) {
     if (req.session.user.email === 'adminCoder@coder.com' && req.session.role === 'admin') {
         return next();

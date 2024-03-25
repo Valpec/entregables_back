@@ -44,13 +44,12 @@ export default class UserService {
                     age: '-'
                 }
                 request.session.role = 'admin'
-                console.log(`para ver lo del admin: ${JSON.stringify(request.session)}`)
+
             }
             else {
                 if (!user) {
                     throw new Error(`Credenciales incorrectas`)
                 } 
-                console.log(`este es el user en login: ${user}`)
                 request.session.user = {
                     name: `${user.firstName} ${user.lastName}`,
                     email: user.email,
@@ -58,7 +57,6 @@ export default class UserService {
                 }
                 request.session.role = 'user'
             }
-            console.log(JSON.stringify(request.session))
 
             return ({ status: 200, payload: request.session.user, message: "Logueo existoso" })
         } catch (error) {
