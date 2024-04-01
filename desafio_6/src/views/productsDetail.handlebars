@@ -1,0 +1,29 @@
+<nav>
+    <ul>
+        <li><a href="/products">Ver Productos</a> </li>
+        <li><a href="/realTimeProducts"> Administrar Productos</a></li>
+        <li><a href="/carts/65f6e85d9ee742a71efd9ff9">Ver carrito * </a></li>
+        <li><a href="/profile"> Perfil </a></li>
+
+
+    </ul>
+</nav>
+
+
+<h3>Detalle de: {{this.title}} </h3>
+<div class="itemList">
+    <div class="item">
+        <h4>Id: {{this._id}}</h4>
+        <p>Title: {{this.title}}</p>
+        <p>Code: {{this.code}}</p>
+        <p>Price: ${{this.price}}</p>
+        <p>Stock: {{this.stock}}</p>
+        <p>Status: {{this.status}}</p>
+        <p>Category: {{this.category}}</p>
+
+        <button id="addCart_{{this.id}}" class="addProdToCart" data-pid="{{this._id}} "> Agregar al Carrito </button>
+
+    </div>
+</div>
+
+<script src="/js/productsAux.js"></script>
