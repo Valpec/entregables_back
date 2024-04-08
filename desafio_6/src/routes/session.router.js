@@ -1,7 +1,6 @@
 import { Router } from "express";
 import UserService from "../dao/db/user.service.js";
 import passport from "passport";
-// import { createHash, isValidPassword } from "../utils.js";
 
 const router = Router()
 const userService = new UserService()
@@ -46,7 +45,7 @@ router.post('/login', passport.authenticate('login', { failureRedirect: '/api/se
         age: user.age
     }
     req.session.role = 'user'
-    
+
     res.send({ status: "success", payload: req.session.user, message: "Logueo exitoso" });
 });
 
@@ -66,7 +65,7 @@ router.get("/fail-register", (req, res) => {
 });
 
 router.get("/fail-login", (req, res) => {
-    res.status(401).send({ error: "Error procesando el registr" });
+    res.status(401).send({ error: "Error procesando el login" });
 });
 
 
