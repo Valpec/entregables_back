@@ -1,0 +1,112 @@
+[
+  {
+    "title": "Vela Copon",
+    "description": "Vela",
+    "code": "vc3500",
+    "price": 3500,
+    "status": true,
+    "stock": 1,
+    "category": "Velas",
+    "thumbnail": "vela_copon.jpg",
+    "id": 1653
+  },
+  {
+    "title": "Vela Alba",
+    "description": "Vela",
+    "code": "va3700",
+    "price": 3700,
+    "status": true,
+    "stock": 1,
+    "category": "Velas",
+    "thumbnail": "vela_alba.jpg",
+    "id": 2122
+  },
+  {
+    "title": "Vela Bir",
+    "description": "Vela",
+    "code": "vb3000",
+    "price": 3000,
+    "status": true,
+    "stock": 1,
+    "category": "Velas",
+    "thumbnail": "vela_bir.jpg",
+    "id": 3234
+  },
+  {
+    "title": "Aromatizador Rita",
+    "description": "Esencia",
+    "code": "ar3000",
+    "price": 3000,
+    "status": true,
+    "stock": 1,
+    "category": "Esencia",
+    "thumbnail": "esencia.jpg",
+    "id": 4234
+  },
+  {
+    "title": "Aromatizador Diana",
+    "description": "Esencia",
+    "code": "ad2800",
+    "price": 2800,
+    "status": true,
+    "stock": 1,
+    "category": "Esencia",
+    "thumbnail": "esencia_carrousel.jpeg",
+    "id": 5234
+  },
+  {
+    "title": "Almohadon a rayas",
+    "description": "Textil",
+    "code": "ary1700",
+    "price": 1700,
+    "status": true,
+    "stock": 1,
+    "category": "Textil",
+    "thumbnail": "almohadones_ray.jpg",
+    "id": 6234
+  },
+  {
+    "title": "Camino de mesa",
+    "description": "Textil",
+    "code": "cm2000",
+    "price": 2000,
+    "status": true,
+    "stock": 1,
+    "category": "Textil",
+    "thumbnail": "camino_mesa.jpeg",
+    "id": 7234
+  },
+  {
+    "title": "Repasador panal",
+    "description": "Textil",
+    "code": "rp1500",
+    "price": 1500,
+    "status": true,
+    "stock": 1,
+    "category": "Textil",
+    "thumbnail": "repasadores.jpg",
+    "id": 8123
+  },
+  {
+    "title": "Colgante Corazon",
+    "description": "Decoracion",
+    "code": "cc1000",
+    "price": 1000,
+    "status": true,
+    "stock": 1,
+    "category": "Decoracion",
+    "thumbnail": "colg_cora.jpg",
+    "id": 9123
+  },
+  {
+    "title": "Repasador panal",
+    "description": "Textil",
+    "code": "rps1500",
+    "price": 1500,
+    "status": true,
+    "stock": 1,
+    "category": "Textil",
+    "thumbnail": "repasadores.jpg",
+    "id": 33781
+  }
+]

@@ -1,0 +1,79 @@
+import express from 'express';
+import handlebars from 'express-handlebars';
+import session from 'express-session';
+
+import __dirname from './utils.js';
+import config from './config/config.js';
+import mongoose from 'mongoose';
+import MongoStore from 'connect-mongo';
+
+import passport from 'passport';
+import initializePassport from './config/passport.config.js';
+
+import viewsRouter from "./routes/views.router.js";
+import cartsRouter from './routes/carts.router.js'
+import productsRouter from './routes/products.router.js'
+import sessionsRouter from './routes/session.router.js'
+import jwtRouter from './routes/jwt.router.js'
+import cookieParser from 'cookie-parser';
+
+
+
+const app = express();
+const PORT = 8080;
+
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
+
+app.engine('handlebars', handlebars.engine());
+app.set('views', __dirname + "/views");
+app.set('view engine', 'handlebars');
+app.use(express.static(__dirname + "/public"));
+
+// app.use(session({
+//     store: MongoStore.create({
+//         mongoUrl: config.mongoURL,
+//         mongoOptions: {useNewUrlParser: true, useUnifiedTopology:true},
+//         ttl: 10 * 60
+//     }),
+//     secret: 'd3s4f105',
+//     resave: false,
+//     saveUnitialized:true,
+// }))
+
+app.use(cookieParser("d3s4f105"))
+
+initializePassport();
+app.use(passport.initialize());
+// app.use(passport.session());
+
+
+app.use('/', viewsRouter)
+app.use('/api/carts', cartsRouter)
+// app.use("/api/jwt", jwtRouter);
+app.use('/api/products', productsRouter)
+app.use('/api/sessions', sessionsRouter);
+
+app.get("*", (req, res) => {
+    res.status(400).send("Connot get that URL!!")
+});
+
+app.listen(PORT, () => {
+    console.log(`Server run on port: ${PORT}`);
+})
+
+const connectMongoDB = async () => {
+    try {
+        await mongoose.connect(config.mongoURL)
+        console.log("Conectado con exito a MongoDB usando Moongose.");
+
+
+    } catch (error) {
+        console.error("No se pudo conectar a la BD usando Moongose: " + error);
+        process.exit();
+    }
+};
+connectMongoDB();
