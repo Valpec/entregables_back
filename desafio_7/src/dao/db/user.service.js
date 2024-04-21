@@ -1,5 +1,6 @@
 import { createHash , isValidPassword, generateJWToken} from "../../utils.js";
 import userModel from "./models/user.js";
+import config from "../../config/config.js";
 
 export default class UserService {
     constructor() {
@@ -40,7 +41,7 @@ export default class UserService {
 
             let user = await userModel.findOne({ email })
             
-            if (email === 'adminCoder@coder.com' && password === 'coder123') {
+            if (email === config.adminEmail && password === config.adminPassword) {
                 request.session.user = {
                     name: 'Administrador Coder',
                     email: email,
