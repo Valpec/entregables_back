@@ -29,8 +29,6 @@ const postSessionController = async (req, res) => {
 
     try {
         let tokenUser = {}
-        let user = await userModel.findOne({ email: email });
-
         if (email === config.adminEmail && password === config.adminPassword) {
             tokenUser = {
                 name: `Admin Coder`,
@@ -41,6 +39,7 @@ const postSessionController = async (req, res) => {
             };
 
         }
+        let user = await userModel.findOne({ email: email });
         if (!user) {
             console.warn(`No existe usuario con username ${email}`);
             return res.status(204).send({ error: "Not found", message: `No existe usuario con username ${email}` });
