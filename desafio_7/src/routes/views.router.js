@@ -1,17 +1,13 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
-import ProductService from '../dao/db/products.service.js';
-import CartService from '../dao/db/carts.service.js';
-import passport from 'passport';
+// import passport from 'passport';
 import { authorization, passportCall } from '../utils.js';
-
+import { viewProductsController , viewProductDetController} from '../controllers/products.controller.js';
+import { viewCartController } from '../controllers/carts.controller.js';
 
 const router = express.Router();
-
-const productManager = new ProductService();
-const cartService = new CartService();
-
 router.use(cookieParser("d3s4f105"));
+
 
 router.get('/', async (req, res) => {
     try {
@@ -23,47 +19,11 @@ router.get('/', async (req, res) => {
 
 })
 
-router.get('/products', passportCall('jwt'), async (req, res) => {
-    try {
-        let limit = parseInt(req.query.limit);
-        let page = parseInt(req.query.page);
-        let sort = req.query.sort;
-        let query = req.query.query;
-        let prods = await productManager.getProducts(limit, page, sort, query)
+router.get('/products', passportCall('jwt'), viewProductsController)
 
-        let data = { prods: prods, user: req.user }
-        res.render(`products`, data)
+router.get('/products/:pid', passportCall('jwt'), viewProductDetController)
 
-    } catch (error) {
-        console.error(`Error processing request: ${error}`)
-        res.status(500).send({ error: "500", message: "Error obteniendo productos" })
-    }
-})
-
-router.get('/products/:pid', passportCall('jwt'), async (req, res) => {
-    try {
-        let pid = req.params.pid
-        let prod = await productManager.getProductsById(pid)
-        req.user ? res.render('productsDetail', prod) : res.send('Debe estar loguado para ver este contenido')
-
-    } catch (error) {
-        console.error(`Error processing request: ${error}`)
-        res.status(500).send({ error: "500", message: "Error consultando productos" })
-    }
-})
-
-router.get('/carts/:cid', passportCall('jwt'), async (req, res) => {
-    try {
-        let cid = req.params.cid
-        let cart = await cartService.listCartProds(cid)
-        req.user ? res.render('cart', cart) : res.send('Debe estar loguado para ver este contenido')
-
-    } catch (error) {
-        console.error(`Error processing request: ${error}`)
-        res.status(500).send({ error: "500", message: "Error consultando el carrito" })
-    }
-})
-
+router.get('/carts/:cid', passportCall('jwt'), viewCartController)
 
 
 router.get(`/api/sessions/register`, async (req, res) => {
@@ -83,7 +43,6 @@ router.get('/github/error', (req, res) => {
 })
 
 
-
 router.get(`/profile`, passportCall('jwt'), async (req, res) => {
     if (req.user) {
 
@@ -96,10 +55,7 @@ router.get(`/profile`, passportCall('jwt'), async (req, res) => {
 
 })
 
-
-
 router.get('/realtimeproducts', passportCall('jwt'), authorization('admin'), (req, res) => {
-
     res.render('realTimeProducts');
 });
 

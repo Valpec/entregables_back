@@ -83,4 +83,16 @@ const putCartQtyController =  async(req, res) => {
     }
 }
 
-export { postCartController, getCartIdController, postCartIdController, deleteCartProdIdController, deleteCartProdsController, putCartController, putCartQtyController}
+const viewCartController = async (req, res) => {
+    try {
+        let cid = req.params.cid
+        let cart = await cartService.listCartProds(cid)
+        req.user ? res.render('cart', cart) : res.send('Debe estar loguado para ver este contenido')
+
+    } catch (error) {
+        console.error(`Error processing request: ${error}`)
+        res.status(500).send({ error: "500", message: "Error consultando el carrito" })
+    }
+}
+
+export { postCartController, getCartIdController, postCartIdController, deleteCartProdIdController, deleteCartProdsController, putCartController, putCartQtyController, viewCartController}

@@ -66,5 +66,33 @@ const deleteProductController = async (req, res) => {
     }
 
 }
+const viewProductsController = async (req, res) => {
+    try {
+        let limit = parseInt(req.query.limit);
+        let page = parseInt(req.query.page);
+        let sort = req.query.sort;
+        let query = req.query.query;
+        let prods = await productService.getProducts(limit, page, sort, query)
 
-export { getProductsController , getProdIdController, postProductsController, putProdIdController, deleteProductController}
+        let data = { prods: prods, user: req.user }
+        res.render(`products`, data)
+
+    } catch (error) {
+        console.error(`Error processing request: ${error}`)
+        res.status(500).send({ error: "500", message: "Error obteniendo productos" })
+    }
+}
+
+const viewProductDetController = async (req, res) => {
+    try {
+        let pid = req.params.pid
+        let prod = await productService.getProductsById(pid)
+        req.user ? res.render('productsDetail', prod) : res.send('Debe estar loguado para ver este contenido')
+
+    } catch (error) {
+        console.error(`Error processing request: ${error}`)
+        res.status(500).send({ error: "500", message: "Error consultando productos" })
+    }
+}
+
+export { getProductsController , getProdIdController, postProductsController, putProdIdController, deleteProductController, viewProductsController, viewProductDetController}
