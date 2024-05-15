@@ -1,0 +1,71 @@
+<nav>
+    <ul>
+        <li><a href="/products">Ver Productos</a> </li>
+        <li><a href="/realTimeProducts"> Administrar Productos</a></li>
+        <li><a href="/carts/{{user.cart}}">Ver carrito * </a></li>
+        <li><a href="/profile"> Perfil </a></li>
+
+    </ul>
+</nav>
+<div>
+    <h2>Bienvenido/a: {{user.fullName}}</h2>
+    <h4>Su rol: {{user.role}}</h4>
+</div>
+
+{{#if prods.isValid}}
+<div>
+    <h4>Filtrar segun:</h4>
+    <ul>
+        <li> <a href="http://localhost:8080/products?query=disponible">Disponibilidad</a></li>
+        <li>Categorias</li>
+        <li><a href="http://localhost:8080/products?query=Velas">Velas</a></li>
+        <li><a href="http://localhost:8080/products?query=Esencia">Esencias</a></li>
+        <li><a href="http://localhost:8080/products?query=Textil">Textiles</a></li>
+        <li><a href="http://localhost:8080/products?query=Decoracion">Decoracion</a></li>
+    </ul>
+    <h4>Ordenar segun precio: </h4>
+    <ul>
+        <li> <a href="/products?sort=desc">Mayor a menor</a></li>
+        <li> <a href="/products?sort=asc">Menor a mayor</a></li>
+
+    </ul>
+</div>
+<h3>Listado de productos: </h3>
+<div class="itemList">
+    {{#each prods.docs}}
+    <div class="item">
+
+        <p>Title: {{this.title}}</p>
+        <p>Price: ${{this.price}}</p>
+        <p>Category: {{this.category}}</p>
+
+        <a href="/products/{{this.id}}">
+            <button> Ver detalle </button>
+        </a>
+
+        <button id="addCart_{{this.id}}" class="addProdToCart" data-pid="{{this._id}}" data-cid="{{../user.cart}}"> Agregar al Carrito </button>
+
+    </div>
+    {{/each}}
+</div>
+
+<div>
+    {{#if hasPrevPage}}
+    <a href={{this.prevLink}}>
+        << Anterior </a>
+            {{/if}}
+            &nbsp;
+            {{this.page}}
+            &nbsp;
+            {{#if hasNextPage}}
+            <a href={{this.nextLink}}>
+                Siguiente >> </a>
+            {{/if}}
+</div>
+
+
+{{else}}
+<h1>No hay productos para mostrar</h1>
+{{/if}}
+
+<script src="/js/productsAux.js"></script>
