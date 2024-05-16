@@ -5,6 +5,7 @@ import { productService } from "../services/service.js";
 import { generateProduct } from "../utils.js";
 import CustomError from "../services/errors/CustomError.js";
 import EErrors from "../services/errors/errors-enum.js";
+import { generateProdErrorInfo } from "../services/errors/messages/product-creation-error-message.js";
 
 
 const validateHasAllFields = async (prod) => {
@@ -48,18 +49,22 @@ const postProductsController = async (req, res) => {
         const validated = await validateHasAllFields(prod)
 
         if (!validated) {
-
+            console.log()
             CustomError.createError({
                 name: "Product Creation Error",
-                cause: 'Campos incompletos',
+                cause: generateProdErrorInfo(prod),
                 message: "Dato ingresado invalido",
                 code: EErrors.INVALID_TYPES_ERROR
+
             })
+
         }
         await productService.addProduct(prod)
         res.status(201).send({ message: "Producto agregado con exito" });
     } catch (error) {
-        res.status(400).send({ error: "400", message: `Error: ${error}` })
+        console.error(error)
+        res.status(400).send({ error: "400", message: `Error: ${error}`})
+        
     }
 }
 
@@ -79,6 +84,7 @@ const putProdIdController = async (req, res) => {
         const respuesta = await productService.updateProduct(pid, prod)
         res.status(200).send({ message: respuesta.payload });
     } catch (error) {
+        console.error(error)
         res.status(400).send({ error: "400", message: `Error: ${error}` });
     }
 }
