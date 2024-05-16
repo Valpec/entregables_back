@@ -6,7 +6,7 @@ class CartManager {
     constructor() {
         const __dirname = path.dirname(fileURLToPath(import.meta.url))
         this.carts = [];
-        this.path = path.resolve(__dirname, "..", "..", "data", "carritos.json")
+        this.path = path.resolve(__dirname, "..", "..", "..", "data", "carritos.json")
         this.fs = fs
     }
 
@@ -82,6 +82,26 @@ class CartManager {
     }
 
 
+    deleteCart = async (cartId) => {
+        let cartsFromFile = await this.readCartFile()
+        let cart = cartsFromFile.find((c) => c.id === cartId)
+
+        if (!cart) {
+            throw new Error(`No existe el carrito`)
+        }
+
+        try {
+            cart ={ id: cartId, products: [] }
+
+            await this.fs.promises.writeFile(
+                this.path,
+                JSON.stringify(cartsFromFile, null, 2, '\t'))
+        } catch (error) {
+            console.error(`Error escribiendo el archivo: ${error}`);
+
+        }
+
+    }
     deleteProdFromCart = async (cartId, prodId) => {
         let cartsFromFile = await this.readCartFile()
         let cart = cartsFromFile.find((c) => c.id === cartId)
@@ -132,7 +152,24 @@ class CartManager {
 
         }     
     }
+    updateCart = async (cartId) => {
 
+        let cartsFromFile = await this.readCartFile()
+        let cart = cartsFromFile.find((c) => c.id === cartId)
+        if (!cart) {
+            throw new Error(`No existe el carrito`)
+        }
+        
+        try {
+               cart ={ id: cartId, products: [] }
+            await this.fs.promises.writeFile(
+                this.path,
+                JSON.stringify(cartsFromFile, null, 2, '\t'))
+        } catch (error) {
+            console.error(`Error escribiendo el archivo: ${error}`);
+
+        }     
+    }
 
 }
 export default CartManager

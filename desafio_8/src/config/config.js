@@ -12,7 +12,7 @@ program.parse();
 console.log("Environment Mode Option: ", program.opts().mode);
 console.log("Persistence Mode Option: ", program.opts().persist);
 
-const environment = program.opts().mode;
+// const environment = program.opts().mode;
 
 // dotenv.config({
 //     path:environment==="prod"?"./src/config/.env.production":"./src/config/.env.development"

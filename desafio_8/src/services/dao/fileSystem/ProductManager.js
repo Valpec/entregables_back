@@ -7,7 +7,7 @@ class ProductManager {
         const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
         this.products = [];
-        this.path = path.resolve(__dirname, "..", "..","data", "productos.json")
+        this.path = path.resolve(__dirname, "..", "..", "..", "data", "productos.json")
 
         this.fs = fs
     }
