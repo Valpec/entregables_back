@@ -1,0 +1,26 @@
+<div>
+    <h2>Se ha realizado su compra: </h2>
+    
+    <div class="item">
+        <p>Code: {{newTicket.code}}</p>
+        <p>Date: {{newTicket.purchase_datetime}}</p>
+        <p>Amouunt: {{newTicket.amount}}</p>
+        <p>Purchaser: {{newTicket.purchaser}}</p>
+    </div>
+
+</div>
+
+
+{{#if notInStock}}
+<div>
+    <h4>Se han removido los siguientes productos por no poder cumplir con el stock solicitado: </h4>
+   
+<div class="itemList">
+    {{#each notInStock}}
+    <div class="item">
+        <p>{{this.product.title}}</p>
+    </div>
+    {{/each}}
+</div>
+
+{{/if}}

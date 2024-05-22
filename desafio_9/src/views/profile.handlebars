@@ -1,0 +1,18 @@
+<nav>
+    <ul>
+        <li><a href="/products">Ver Productos</a> </li>
+        <li><a href="/realTimeProducts"> Administrar Productos</a></li>
+        <li><a href="/carts/{{user.cart}}">Ver carrito * </a></li>
+        <li><a href="/profile"> Perfil </a></li>
+
+    </ul>
+</nav>
+<div>
+    <h1>Tu perfil: </h1>
+    <p>{{user.name}}</p>
+    <p>{{user.email}}</p>
+    <p>{{user.age}}</p>
+
+
+    <a href="/api/sessions/logout"><button>Cerrar sesion</button></a>
+</div>
