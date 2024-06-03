@@ -1,5 +1,5 @@
 import { cartsModel } from "./models/carts.js"
-
+import { productsModel } from "./models/products.js"
 export default class CartService {
     constructor() {
         console.log('Working carts with database persistance in mongodb')
@@ -41,13 +41,17 @@ export default class CartService {
                 throw new Error(`No existe el carrito`)
             }
 
-           
+            let product = await productsModel.findById(prodId);
+            if (!product) {
+                throw new Error(`No existe el producto`);
+            }
+            if (product.owner === email) {
+                throw new Error('No puede agregar a su carrito un producto propio');
+            }
+
             let prodExists = cartExists.products.find(
                 prod => prod.product._id == prodId)
 
-            if(!prodExists && product.owner === email){
-                throw new Error('No puede agregar a su carrito un producto propio')
-            }
             if (prodExists) {
                 prodExists.quantity++
             } else {
