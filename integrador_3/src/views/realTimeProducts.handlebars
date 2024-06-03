@@ -1,0 +1,99 @@
+<nav>
+     <ul>
+        <li><a href="/products">Ver Productos</a> </li>
+        <li><a href="/realTimeProducts"> Administrar Productos</a></li>
+        <li><a href="/carts/{{user.cart}}">Ver carrito * </a></li>
+        <li><a href="/profile"> Perfil </a></li>
+
+
+
+    </ul>
+</nav>
+
+<div class="">
+    <h2>Informacion Productos</h2>
+    <div class="formularios">
+        <div class="formAdd">
+            <h2>Agregar Producto</h2>
+            <form id="addProd" action="/api/products"  method="POST">
+                <label for="title"> Title: </label>
+                <input id="title" type="text" name="title" class="input">
+
+                <label for="description"> Description: </label>
+                <input id="description" type="text" name="description" class="input">
+
+                <label for="code"> Code: </label>
+                <input id="code" type="text" name="code" class="input">
+
+                <label for="price"> Price: </label>
+                <input id="price" type="text" name="price" class="input">
+
+                <label for="status"> Status: </label>
+                <input id="status" type="text" name="status" class="input">
+
+                <label for="stock"> Stock: </label>
+                <input id="stock" type="text" name="stock" class="input">
+
+
+                <label for="category"> Category: </label>
+                <input id="category" type="text" name="category" class="input">
+
+
+                <label for="thumbnail"> Thumbnail: </label>
+                <input id="thumbnail" type="text" name="thumbnail" class="input">
+
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+
+        <div class="formDel">
+            <h3>Eliminar Producto</h3>
+            <form id="deleteProd" method="DELETE" enctype="multipart/form-data">
+                <label for="">Id del producto:</label>
+                <input id="delProdId" type="text" name="pid">
+                <input id="deleteProdBtn" type="submit" value="Enviar">
+            </form>
+        </div>
+
+        <div class="formUpdate">
+            <h3>Modificar Producto</h3>
+             <form id="updateProd"  >
+                <label for="uTitle"> Title: </label>
+                <input id="uTitle" type="text" name="title" class="input">
+
+                <label for="uDescription"> Description: </label>
+                <input id="uDescription" type="text" name="description" class="input">
+
+                <label for="uCode"> Code: </label>
+                <input id="uCode" type="text" name="code" class="input">
+
+                <label for="uPrice"> Price: </label>
+                <input id="uPrice" type="text" name="price" class="input">
+
+                <label for="uStatus"> Status: </label>
+                <input id="uStatus" type="text" name="status" class="input">
+
+                <label for="uStock"> Stock: </label>
+                <input id="uStock" type="text" name="stock" class="input">
+
+
+                <label for="uCategory"> Category: </label>
+                <input id="uCategory" type="text" name="category" class="input">
+
+
+                <label for="uThumbnail"> Thumbnail: </label>
+                <input id="uThumbnail" type="text" name="thumbnail" class="input">
+
+                <label for="uId"> Id: </label>
+                <input id="uId" type="text" name="_id" class="input">
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+
+
+    </div>
+
+</div>
+
+{{!-- <script src="/socket.io/socket.io.js"></script> --}}
+<script src="/js/index.js"></script>
