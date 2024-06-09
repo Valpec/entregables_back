@@ -1,0 +1,22 @@
+paths:
+  /api/products/{pid}:
+    get:
+      summary: Consulta el detalle del producto recibido por parametro.
+      tags:
+        - Productos
+      parameters:
+      - name: pid
+        in: path
+        required: true
+        description: Id del producto que se desea consultar
+        schema:
+          $type: string
+      responses:
+        "200":
+          description: Producto consultado exitosamente.
+        content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        "500":
+          description: No se pudo consultar el producto.

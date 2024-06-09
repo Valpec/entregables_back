@@ -1,0 +1,35 @@
+
+<nav>
+    <ul>
+        <li><a href="/products">Ver Productos</a> </li>
+        <li><a href="/realTimeProducts"> Administrar Productos</a></li>
+        <li><a href="/carts/{{user.cart}}">Ver carrito * </a></li>
+        <li><a href="/profile"> Perfil </a></li>
+
+
+    </ul>
+</nav>
+{{#if cart.products}}
+
+<div>
+    <h3>Productos del cart: </h3>
+    {{#each cart.products}}
+    <div class="item">
+        <h4>Id: {{product._id}}</h4>
+        <p> Title: {{product.title}}</p>
+        <p> Cantidad: {{quantity}}</p>
+
+        <button class="delProdFromCart" data-pid="{{product._id}}" data-cid="{{../user.cart}}"> Eliminar del Carrito </button>
+
+    </div>
+    {{/each}}
+
+{{else}}
+<h1>No hay productos en el carrito para mostrar</h1>
+{{/if}}
+
+</div>
+        <a href="/api/carts/{{user.cart}}/purchase"><button>Realizar compra </button></a>
+
+
+<script src="/js/cartsAux.js"></script>

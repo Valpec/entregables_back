@@ -1,0 +1,25 @@
+paths:
+  /api/carts/{cid}/product/{pid}:
+    delete:
+      summary: Elimina el producto indicado del carrito
+      tags:
+        - Carritos
+      parameters:
+        - in: path
+          name: cid
+          required: true
+          description: Id del carrito al cual eliminarle productos.
+          schema:
+            type: string
+        - in: path
+          name: pid 
+          required: true
+          description: Id producto a eliminar.
+          schema:
+            type: string 
+      responses:
+        "200":
+          description: Producto eliminado con éxito del carrito
+        "500":
+          description: Error eliminando el producto
+        

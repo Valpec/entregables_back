@@ -1,0 +1,78 @@
+info: GET en /loggerTest/ - at 5/22/2024 - 8:19:40 PM
+warning: GET en /loggerTest/ - at 5/22/2024 - 8:19:40 PM
+error: GET en /loggerTest/ - at 5/22/2024 - 8:19:40 PM
+fatal: GET en /loggerTest/ - at 5/22/2024 - 8:19:40 PM
+http: Prueba de log level http -en endpoint /loggerTest
+info: Prueba de log level info -en endpoint /loggerTest
+warning: Prueba de log level warning -en endpoint /loggerTest
+error: Prueba de log level error -en endpoint /loggerTest
+fatal: Prueba de log level fatal -en endpoint /loggerTest
+info: GET en /favicon.ico - at 5/22/2024 - 8:19:42 PM
+warning: GET en /favicon.ico - at 5/22/2024 - 8:19:42 PM
+error: GET en /favicon.ico - at 5/22/2024 - 8:19:42 PM
+fatal: GET en /favicon.ico - at 5/22/2024 - 8:19:42 PM
+info: GET en /loggerTest/ - at 5/22/2024 - 8:20:13 PM
+warning: GET en /loggerTest/ - at 5/22/2024 - 8:20:13 PM
+error: GET en /loggerTest/ - at 5/22/2024 - 8:20:13 PM
+fatal: GET en /loggerTest/ - at 5/22/2024 - 8:20:13 PM
+http: Prueba de log level http -en endpoint /loggerTest
+info: Prueba de log level info -en endpoint /loggerTest
+warning: Prueba de log level warning -en endpoint /loggerTest
+error: Prueba de log level error -en endpoint /loggerTest
+fatal: Prueba de log level fatal -en endpoint /loggerTest
+info: GET en /favicon.ico - at 5/22/2024 - 8:20:15 PM
+warning: GET en /favicon.ico - at 5/22/2024 - 8:20:15 PM
+error: GET en /favicon.ico - at 5/22/2024 - 8:20:15 PM
+fatal: GET en /favicon.ico - at 5/22/2024 - 8:20:15 PM
+info: GET en /loggerTest/prfile - at 5/22/2024 - 8:20:20 PM
+warning: GET en /loggerTest/prfile - at 5/22/2024 - 8:20:20 PM
+error: GET en /loggerTest/prfile - at 5/22/2024 - 8:20:20 PM
+fatal: GET en /loggerTest/prfile - at 5/22/2024 - 8:20:20 PM
+info: GET en /favicon.ico - at 5/22/2024 - 8:20:22 PM
+warning: GET en /favicon.ico - at 5/22/2024 - 8:20:22 PM
+error: GET en /favicon.ico - at 5/22/2024 - 8:20:22 PM
+fatal: GET en /favicon.ico - at 5/22/2024 - 8:20:22 PM
+info: GET en /loggerTest/prfile - at 5/22/2024 - 8:22:06 PM
+warning: GET en /loggerTest/prfile - at 5/22/2024 - 8:22:06 PM
+error: GET en /loggerTest/prfile - at 5/22/2024 - 8:22:06 PM
+fatal: GET en /loggerTest/prfile - at 5/22/2024 - 8:22:06 PM
+info: GET en /loggerTest/ - at 5/22/2024 - 8:22:13 PM
+warning: GET en /loggerTest/ - at 5/22/2024 - 8:22:13 PM
+error: GET en /loggerTest/ - at 5/22/2024 - 8:22:13 PM
+fatal: GET en /loggerTest/ - at 5/22/2024 - 8:22:13 PM
+http: Prueba de log level http -en endpoint /loggerTest
+info: Prueba de log level info -en endpoint /loggerTest
+warning: Prueba de log level warning -en endpoint /loggerTest
+error: Prueba de log level error -en endpoint /loggerTest
+fatal: Prueba de log level fatal -en endpoint /loggerTest
+info: GET en /favicon.ico - at 5/22/2024 - 8:22:15 PM
+warning: GET en /favicon.ico - at 5/22/2024 - 8:22:15 PM
+error: GET en /favicon.ico - at 5/22/2024 - 8:22:15 PM
+fatal: GET en /favicon.ico - at 5/22/2024 - 8:22:15 PM
+info: GET en /loggerTest/ - at 5/22/2024 - 8:23:51 PM
+warning: GET en /loggerTest/ - at 5/22/2024 - 8:23:51 PM
+error: GET en /loggerTest/ - at 5/22/2024 - 8:23:51 PM
+fatal: GET en /loggerTest/ - at 5/22/2024 - 8:23:51 PM
+http: Prueba de log level http -en endpoint /loggerTest
+info: Prueba de log level info -en endpoint /loggerTest
+warning: Prueba de log level warning -en endpoint /loggerTest
+error: Prueba de log level error -en endpoint /loggerTest
+fatal: Prueba de log level fatal -en endpoint /loggerTest
+info: GET en /favicon.ico - at 5/22/2024 - 8:23:53 PM
+warning: GET en /favicon.ico - at 5/22/2024 - 8:23:53 PM
+error: GET en /favicon.ico - at 5/22/2024 - 8:23:53 PM
+fatal: GET en /favicon.ico - at 5/22/2024 - 8:23:53 PM
+http: Prueba de log level http -en endpoint /loggerTest
+info: Prueba de log level info -en endpoint /loggerTest
+warning: Prueba de log level warning -en endpoint /loggerTest
+error: Prueba de log level error -en endpoint /loggerTest
+fatal: Prueba de log level fatal -en endpoint /loggerTest
+http: Prueba de log level http -en endpoint /loggerTest
+info: Prueba de log level info -en endpoint /loggerTest
+warning: Prueba de log level warning -en endpoint /loggerTest
+error: Prueba de log level error -en endpoint /loggerTest
+fatal: Prueba de log level fatal -en endpoint /loggerTest
+error: undefined {"cause":null,"code":2,"name":"User Creation Error"}
+error: undefined {"cause":null,"code":2,"name":"User Creation Error"}
+error: undefined {"cause":null,"code":2,"name":"User Creation Error"}
+error: undefined {"cause":null,"code":2,"name":"User Creation Error"}

@@ -1,0 +1,12 @@
+paths:
+  /api/products/{pid}:
+    delete:
+      summary: Elimina el producto indicado.
+      tags:
+        - Productos
+      responses:
+        "200":
+          description: Producto eliminado exitosamente
+        "500":
+          description: No se pudo eliminar el producto. Error.
+        
