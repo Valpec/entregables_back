@@ -1,0 +1,23 @@
+paths:
+  /api/carts/{cid}:
+    get:
+      summary: Obtiene el carrito solicitado por parámetro
+      tags:
+        - Carritos
+      parameters:
+      - name: cid
+        in: path
+        required: true
+        description: Id del carrito que se desea solicitar
+        schema:
+          $type: string
+      responses:
+        "200":
+          description: Carrito obtenido con exito
+        content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/Cart'
+        "500":
+          description: No se pudo obtener el carrito

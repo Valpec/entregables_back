@@ -1,0 +1,13 @@
+paths:
+  /api/products/:pid:
+    put:
+      summary: Gets every product available
+      tags:
+        - Productos
+      responses:
+        "200":
+          description: Every product avalaible
+        content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
