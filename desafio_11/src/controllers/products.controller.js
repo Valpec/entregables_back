@@ -60,8 +60,10 @@ const postProductsController = async (req, res) => {
                 code: EErrors.INVALID_TYPES_ERROR
             })
         }
-        await productService.addProduct(prod, req.user.email)
-        res.status(201).send({ message: "Producto agregado con exito" });
+        const product = await productService.addProduct(prod, req.user.email)
+        // res.status(201).send({ message: "Producto agregado con exito" });
+        res.status(201).send(product);
+
     } catch (error) {
         req.logger.error(error)
         res.status(500).send({ error: "500", message: `Error: ${error}`})

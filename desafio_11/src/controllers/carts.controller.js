@@ -65,7 +65,6 @@ const deleteCartProdIdController = async(req, res) => {
 
 const deleteCartProdsController = async(req, res) => {
     try{
-        console.log('entra delete')
         let cid = req.params.cid
         await cartService.deleteCart(cid)
         res.status(200).send({ message: "Carrito eliminado con exito" });

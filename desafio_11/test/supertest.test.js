@@ -5,14 +5,15 @@ const expect = chai.expect;
 const requester = supertest('http://localhost:8080')
 
 
-
 describe("Test Cattalina Deco-Home", () => {
-
+    
+    let cookie = {}
+    let prodId 
+    let cartId
      // Test Sessions
      describe("Testeando login y sesiones con cookies", () => {
 
         before(function () {
-            this.cookie;
             this.mockUser = {
                 firstName: "Usuario de prueba3",
                 lastName: "Apellido de prueba3",
@@ -35,34 +36,20 @@ describe("Test Cattalina Deco-Home", () => {
                 email: this.mockUser.email,
                 password: this.mockUser.password
             }
-
             // Then
             const result = await requester.post('/api/sessions/login').send(mockLogin)
             // console.log(result);
             const cookieResult = result.headers['set-cookie'][0]
-
             const cookieData = cookieResult.split("=")
-            this.cookie = {
+            cookie = {
                 name: cookieData[0],
                 value: cookieData[1]
             }
-
             // Assert
             expect(result.statusCode).is.eqls(200)
-            expect(this.cookie.name).to.be.ok.and.eql('jwtCookieToken')
-            expect(this.cookie.value).to.be.ok
+            expect(cookie.name).to.be.ok.and.eql('jwtCookieToken')
+            expect(cookie.value).to.be.ok
         })
-
-        // // Test_03
-        // it("Test Ruta Protegida: Debe enviar la cookie que contiene el usuario y destructurarla correctamente.", async function () {
-        //     // Given
-
-        //     // Then
-        //     const { _body } = await requester.get("/api/sessions/current").set('Cookie', [`${this.cookie.name}=${this.cookie.value}`])
-
-        //     // Assert
-        //     expect(_body.payload.email).to.be.ok.and.eql(this.mockUser.email)
-        // })
 
 
     })
@@ -85,33 +72,20 @@ describe("Test Cattalina Deco-Home", () => {
 
         it("Test Registro Producto: Debe poder registrar correctamente un producto", async function () {
             // Then
-            const result = await requester.post('/api/products/').send(this.mockProducto)
-            // console.log(result)
+            const result = await requester.post('/api/products/').send(this.mockProducto).set('Cookie', [`${cookie.name}=${cookie.value}`]);
+             prodId = result.body._id
             // Assert
             expect(result.statusCode).is.eql(201);
         })
 
         it("Test Eliminacion de Producto: Se debe eliminar correctamente el producto registrado anteriormente.", async function () {
-            // Given
 
             // Then
-            const result = await requester.delete('/api/products/').send(this.mockProducto)
-            // console.log(result);
+            const result = await requester.delete(`/api/products/${this.prodId}`).send(this.mockProducto).set('Cookie', [`${cookie.name}=${cookie.value}`])
 
             // Assert
             expect(result.statusCode).is.eqls(200)
         })
-
-        // // Test_03
-        // it("Test Ruta Protegida: Debe enviar la cookie que contiene el usuario y destructurarla correctamente.", async function () {
-        //     // Given
-
-        //     // Then
-        //     const { _body } = await requester.get("/api/sessions/current").set('Cookie', [`${this.cookie.name}=${this.cookie.value}`])
-
-        //     // Assert
-        //     expect(_body.payload.email).to.be.ok.and.eql(this.mockUser.email)
-        // })
 
     })
     //Test Carrito
@@ -138,24 +112,22 @@ describe("Test Cattalina Deco-Home", () => {
         it("Test Creacion Carts: Debe poder crear correctamente un carrito", async function () {
             // Then
             const result = await requester.post('/api/carts/')
-            console.log(result)
-            this.cartId = result.body._id
+            cartId = result.body._id
             // Assert
             expect(result.statusCode).is.eql(201);
         })
 
         it("Test Agregar Carts: Debe poder agregar al carrito creado un producto enviado", async function () {
             // Then
-            const result = await requester.post(`/api/carts/${this.cartId}/product/`)
+            console.log('this oprod', prodId)
+            const result = await requester.post(`/api/carts/${cartId}/product/${prodId}`).set('Cookie', [`${cookie.name}=${cookie.value}`])
             // Assert
             expect(result.statusCode).is.eql(201);
         })
 
         it("Test Eliminacion de Carrito: Se debe eliminar correctamente el carrito registrado anteriormente.", async function () {
-            // Given
-
             // Then
-            const result = await requester.delete('/api/products/').send(this.mockProducto)
+            const result = await requester.delete(`/api/carts/${cartId}`).set('Cookie', [`${cookie.name}=${cookie.value}`])
             // console.log(result);
 
             // Assert
