@@ -8,7 +8,6 @@ import { uploader } from "../utils.js";
 
 
 router.put('/premium/:uid' ,putPremiumUserController)
-// router.put('/premium' ,putPremiumUserController)
 
 router.get('/resetPassword', (req, res) => {
     res.render('resetPassword')
