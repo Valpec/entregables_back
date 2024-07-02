@@ -1,0 +1,12 @@
+paths:
+  /api/carts:
+    post:
+      summary: Crea un carrito vacio
+      tags:
+        - Carritos
+      responses:
+        "201":
+          description: Carrito creado con éxito
+        "500":
+          description: Error en el server, no se pudo crear el carrito
+        

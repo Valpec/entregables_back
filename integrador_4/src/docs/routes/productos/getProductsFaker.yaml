@@ -1,0 +1,15 @@
+paths:
+  /api/products/mockingProducts:
+    get:
+      summary: Obtiene un array de data "falsa" con la estuctura de los productos reales, para testear.
+      tags:
+        - Productos
+      responses:
+        "200":
+          description: Consulta exitosa.
+        content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        "500":
+          description: No se pudieron obtener los productos. Error de server..

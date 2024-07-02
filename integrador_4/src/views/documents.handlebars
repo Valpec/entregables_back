@@ -1,0 +1,23 @@
+<div>
+    <h3>Documentos: </h3>
+    <form action="/api/users/{{user.id}}/documents" method="post" enctype="multipart/form-data">
+
+        <label for='profilePhoto'>Foto de perfil: </label>
+        <input id='profilePhoto' type="file" name="profilePhoto">
+
+        <label for='productPhotos'>Imagenes de productos: </label>
+        <input id='productPhotos' type="file" name="productPhotos">
+
+        <label for="documents_identificacion">Documento de Identificación:</label>
+        <input type="file" id="documents_identificacion" name="documents_identificacion">
+
+        <label for="documents_comprobante_domicilio">Comprobante de Domicilio:</label>
+        <input type="file" id="documents_comprobante_domicilio" name="documents_comprobante_domicilio">
+
+        <label for="documents_comprobante_cuenta">Comprobante de Cuenta:</label>
+        <input type="file" id="documents_comprobante_cuenta" name="documents_comprobante_cuenta">
+
+        <button type="submit">Subir archivos</button>
+    </form>
+</div>
+

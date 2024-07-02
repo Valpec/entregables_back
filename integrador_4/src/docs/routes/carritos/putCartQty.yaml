@@ -1,0 +1,30 @@
+paths:
+  /api/carts/{cid}/product/{pid}:
+    put:
+      summary: Actualiza la cantidad de ejemplares del producto
+      tags:
+        - Carritos
+      parameters:
+        - in: path
+          name: cid
+          required: true
+          description: Id del carrito al cual actualizar su producto.
+          schema:
+            type: string
+        - in: path
+          name: pid 
+          required: true
+          description: Id producto a actualizar su cantidad.
+          schema:
+            type: string 
+        - in: body
+          name: qty 
+          required: true
+          description: Nueva cantidad del producto a actualizar.
+          schema:
+            type: number 
+      responses:
+        "200":
+          description: Carrito actualizado con éxito
+        "500":
+          description: Error en la actualización del carrito

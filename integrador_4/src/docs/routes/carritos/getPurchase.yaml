@@ -1,0 +1,19 @@
+paths:
+  /api/carts/{cid}/purchase:
+    get:
+      summary: Realiza la compra de los productos en carrito
+      tags:
+        - Carritos
+      parameters:
+        - in: path
+          name: cid
+          required: true
+          description: Id del carrito a realizar la compra
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Compra realizada exitosamente.
+        
+        "500":
+          description: Error consultando el carrito.

@@ -1,0 +1,48 @@
+components:
+  schemas:
+    Product:
+      type: object
+      required:
+        - id
+        - code
+      properties:
+        id:
+          type: string
+          description: El id autogenerado del producto.
+        title:
+          type: string
+          description: El nombre del producto.
+        description:
+          type: string
+          description: La descripción del producto.
+        code:
+          type: string
+          description: El código del producto.
+        price:
+          type: number
+          description: El precio del producto.
+        status:
+          type: boolean
+          description: El estado del producto.
+        stock:
+          type: number
+          description: El stock del producto.
+        category:
+          type: string
+          description: La categoria del producto.
+        thumbnail:
+          type: boolean
+          description: El thumbnail del producto.
+        owner:
+          type: string
+          description: El creador del producto.
+      example:
+        _id: 65efae37086c5e4bb487508e,
+        title: Vela Copon
+        description: Vela
+        code: vc3500
+        price: 3500
+        status: true
+        stock: 9859
+        category: Velas
+        thumbnail: vela_copon.jpg

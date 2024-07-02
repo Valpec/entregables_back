@@ -1,0 +1,18 @@
+paths:
+  /api/products:
+    post:
+      summary: Crear un producto.
+      tags:
+        - Productos
+      parameters:
+      - name: prod
+        in: body
+        required: true
+        description: Informacion para crear el producto.
+        schema:
+          $ref: '#/components/schemas/Product'
+      responses:
+        "201":
+          description: Producto creado con exito.
+        "500":
+          description: Error creando el producto
